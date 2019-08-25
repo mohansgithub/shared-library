@@ -1,5 +1,5 @@
 //Add Code here
-
+package com.techm.pipeline;
 import com.techm.pipeline.AutomateUtils;
 def call(userName,role,email){
 	AutomateUtils automateUtils=new com.techm.pipeline.AutomateUtils(this);
@@ -21,7 +21,7 @@ def call(userName,role,email){
 				steps{
 					script{
 						echo "Creating users";
-						automateUtils.addUsers("user","jenkins","email")
+						automateUtils.addUsers("user","jenkins","email");
 					}
 				}
 			}
