@@ -44,7 +44,7 @@ public class AutomateUtils{
 		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
 			def responseBody=get.getInputStream().getText();
-			return responsBody;
+			return responseBody;
 		}else{
 			throw new Exception("[ERROR] Error Status - ${responseCode}");
 		}
@@ -65,7 +65,7 @@ public class AutomateUtils{
 		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
 			def responseBody=post.getInputStream().getText();
-			return responsBody;
+			return responseBody;
 		}else{
 			throw new Exception("Error Status - ${responseCode}");
 		}
