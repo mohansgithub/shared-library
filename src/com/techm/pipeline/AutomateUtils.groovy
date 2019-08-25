@@ -14,7 +14,7 @@ public class AutomateUtils{
 		def user
 		def password
 		
-		get("URL","${user}:${password}");
+	//	get("URL","${user}:${password}");
 		
 	}
 	def assignProject(userName,project){
@@ -27,7 +27,7 @@ public class AutomateUtils{
 		def data
 		def contentType
 		
-		post(url,contentType,data,"${user}:${password}");
+	//	post(url,contentType,data,"${user}:${password}");
 	}
 	
 	def get(url,credentials){
