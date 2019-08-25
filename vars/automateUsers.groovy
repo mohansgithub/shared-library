@@ -15,11 +15,24 @@ def call(userName,role,email){
 					}
 				}
 			}
-			stage("Create users"){
+			stage("Assign roles"){
 				steps{
 					script{
 						echo "Creating users";
-						automateUtils.addUsers("user","jenkins","email");
+						def listmap = [
+							[a: 4, b: 16, c: 64],
+							[x: 5, y: 25, z: 625],
+						]
+
+						echo('Using "it":');
+						listmap.each {
+							def newmap = it;
+							echo("first level item: " + newmap);
+							newmap.each {
+								echo("    ${it.key}: ${it.value}");
+							}
+						}
+						automateUtils.assignRole("user","jenkins","email");
 					}
 				}
 			}
@@ -27,7 +40,7 @@ def call(userName,role,email){
 				steps{
 					script{
 						echo "Assigning project";
-						automateUtils.addProject("user","project");
+						automateUtils.assignProject("user","project");
 					}
 				}
 			}
@@ -35,7 +48,7 @@ def call(userName,role,email){
 		post{
 			always{
 				script{
-					echo "Notify stake holders here";
+					echo "Notify stakeholders here";
 				}
 			}
 		}
