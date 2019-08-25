@@ -23,6 +23,14 @@ def call(userName,role,email){
 					}
 				}
 			}
+			stage("Assign Project"){
+				steps{
+					script{
+						echo "Assigning project";
+						automateUtils.addProject("user","project");
+					}
+				}
+			}
 		}
 		post{
 			always{

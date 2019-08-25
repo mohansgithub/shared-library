@@ -18,7 +18,7 @@ public class AutomateUtils{
 		
 	}
 	def addProject(userName,project){
-		pipeline.echo("${userName} - ${project}"
+		pipeline.echo("${userName} - ${project}");
 	}
 	
 	def get(url,credentials){
