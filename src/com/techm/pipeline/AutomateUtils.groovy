@@ -41,7 +41,7 @@ public class AutomateUtils{
 		get.setDoOutput(true);
 		get.setRequestProperty("Authorization","Basic ${base64Encode}");
 		def responseCode = get.getResponseCode();
-		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
+		pipeline.echo("[REST API] Status Code ${responseCode}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
 			def responseBody=get.getInputStream().getText();
 			return responseBody;
@@ -52,17 +52,17 @@ public class AutomateUtils{
 	
 	def post(url,contentType,data,credentials){
 		//Lets call POST to APIs from here
-		pipeline.echo("[REST API] ${url+"?"+data} ${credentials} ${contentType} ${data}")
+		pipeline.echo("[REST API] Data - ${data}")
 		def base64Encode="${credentials}".bytes.encodeBase64().toString();
-		def post=new URL(url+"?"+data).openConnection();
+		def post=new URL(url).openConnection();
 		//pipeline.echo("[REST API] POST URL - ${url}");
 		post.setRequestMethod("POST");
 		post.setDoOutput(true);
 		post.setRequestProperty("Authorization","Basic ${base64Encode}");
 		post.setRequestProperty("Content-Type","${contentType}");
-		//post.getOutputStream().write(data.getBytes("UTF-8"));
+		post.getOutputStream().write(data.getBytes("UTF-8"));
 		def responseCode = post.getResponseCode();
-		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
+		pipeline.echo("[REST API] Status Code ${responseCode}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
 			def responseBody=post.getInputStream().getText();
 			return responseBody;

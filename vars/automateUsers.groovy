@@ -4,13 +4,10 @@ def call(usersMap){
 	pipeline{
 		agent any
 		stages{
-			stage("verify users"){
+			stage("Clean WorkSpace"){
 				steps{
 					script{
-						sh "pwd && ls -l"
 						cleanWs();
-						echo "Hi Groovy";
-						sh "pwd && ls -l";
 					}
 				}
 			}
