@@ -14,7 +14,7 @@ public class AutomateUtils{
 		
 		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
 		def data="type=globalRoles&amp;roleName=${role}&amp;sid=${email}"
-		def contentType="application/text"
+		def contentType="application/x-www-form-urlencoded";
 		
 		post(url,contentType,data,"${user}:${password}");
 		pipeline.echo("[INFO] Assigned role - ${role} to ${email}");
@@ -26,7 +26,7 @@ public class AutomateUtils{
 		
 		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
 		def data="type=projectRole&amp;&roleName=${project}&amp;sid=${email}"
-		def contentType="application/text"
+		def contentType="application/x-www-form-urlencoded"
 		
 		post(url,contentType,data,"${user}:${password}");
 		pipeline.echo("[INFO] Assigned project ${url} - ${project} to ${email}");

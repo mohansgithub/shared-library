@@ -10,9 +10,7 @@ def call(usersMap){
 						sh "pwd && ls -l"
 						cleanWs();
 						echo "Hi Groovy";
-						sh "pwd && ls -l"
-						
-						
+						sh "pwd && ls -l";
 					}
 				}
 			}
@@ -27,7 +25,6 @@ def call(usersMap){
 							echo("[INFO] Assigning role : ${role}  to ${email}-[${user.name}]");
 							automateUtils.assignRole(email,role);
 						}
-						
 					}
 				}
 			}
@@ -43,10 +40,7 @@ def call(usersMap){
 								echo("[INFO] Assigning project : ${project}  to ${email}");
 								automateUtils.assignProject(email,project);	
 							}
-							
-						
 						}
-						
 					}
 				}
 			}
