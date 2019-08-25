@@ -9,24 +9,26 @@ public class AutomateUtils{
 	}
 	
 	def assignRole(email,role){
+		def user="admin";
+		def password="admin";
 		
+		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
+		def data="type=globalRoles&roleName=${role}&sid=${email}"
+		def contentType="application/text"
 		
-		def user
-		def password
-		
-	//	get("URL","${user}:${password}");
+		post(url,contentType,data,"${user}:${password}");
 		pipeline.echo("[INFO] Assigned role - ${role} to ${email}");
 		
 	}
 	def assignProject(email,project){
-		def user
-		def password
+		def user="admin";
+		def password="admin";
 		
-		def url=pipeline.env.JENKINS_URL+"/";
-		def data
-		def contentType
+		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
+		def data="type=projectRoles&roleName=${project}&sid=${email}"
+		def contentType="application/text"
 		
-	// post(url,contentType,data,"${user}:${password}");
+		post(url,contentType,data,"${user}:${password}");
 		pipeline.echo("[INFO] Assigned project ${url} - ${project} to ${email}");
 	}
 	
