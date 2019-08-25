@@ -54,13 +54,13 @@ public class AutomateUtils{
 		//Lets call POST to APIs from here
 		pipeline.echo("[REST API] ${url} ${credentials} ${contentType} ${data}")
 		def base64Encode="${credentials}".bytes.encodeBase64().toString();
-		def post=new URL(url).openConnection();
+		def post=new URL(url+data).openConnection();
 		//pipeline.echo("[REST API] POST URL - ${url}");
 		post.setRequestMethod("POST");
 		post.setDoOutput(true);
 		post.setRequestProperty("Authorization","Basic ${base64Encode}");
 		post.setRequestProperty("Content-Type","${contentType}");
-		post.getOutputStream().write(data.getBytes("UTF-8"));
+		//post.getOutputStream().write(data.getBytes("UTF-8"));
 		def responseCode = post.getResponseCode();
 		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
