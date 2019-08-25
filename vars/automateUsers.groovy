@@ -1,3 +1,4 @@
+import com.techm.pipeline.*;
 def call(userName,role,email){
 	AutomateUtils automateUtils=new com.techm.pipeline.AutomateUtils(this);
 	
