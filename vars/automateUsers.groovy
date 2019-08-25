@@ -4,14 +4,14 @@ def call(usersMap){
 	pipeline{
 		agent any
 		parameters {
-			string(description: '', name: 'PARAMETER');
+			string(description: '', name: 'userMap');
 		}
 
 		stages{
 			stage("Clean WorkSpace"){
 				steps{
 					script{
-						echo "${PARAMETER}"
+						echo "${userMap}"
 						cleanWs();
 					}
 				}
