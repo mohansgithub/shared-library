@@ -1,6 +1,9 @@
 //Add Code here
-def call(userName,role,email){
 
+import com.techm.pipeline.AutomateUtils;
+def call(userName,role,email){
+	AutomateUtils automateUtils=new com.techm.pipeline.AutomateUtils(this);
+	
 	pipeline{
 		agent any
 		stages{
@@ -18,8 +21,7 @@ def call(userName,role,email){
 				steps{
 					script{
 						echo "Creating users";
-						echo "$userName ($role) - $email"
-						echo "Lets call API from here using groovy class";
+						automateUtils.addUsers("user","jenkins","email")
 					}
 				}
 			}
