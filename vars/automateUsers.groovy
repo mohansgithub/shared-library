@@ -3,10 +3,15 @@ def call(usersMap){
 	AutomateUtils automateUtils=new com.techm.pipeline.AutomateUtils(this);
 	pipeline{
 		agent any
+		parameters {
+			string(defaultValue: true, description: '', name: 'PARAMETER')
+		}
+
 		stages{
 			stage("Clean WorkSpace"){
 				steps{
 					script{
+						echo "${PARAMETER}"
 						cleanWs();
 					}
 				}
