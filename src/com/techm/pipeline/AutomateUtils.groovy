@@ -52,7 +52,7 @@ public class AutomateUtils{
 	
 	def post(url,contentType,data,credentials){
 		//Lets call POST to APIs from here
-		pipeline.echo("[REST API] ${url} ${credentials} ${content type} ${data}")
+		pipeline.echo("[REST API] ${url} ${credentials} ${contentType} ${data}")
 		def base64Encode="${credentials}".bytes.encodeBase64().toString();
 		def post=new URL(url).openConnection();
 		//pipeline.echo("[REST API] POST URL - ${url}");
