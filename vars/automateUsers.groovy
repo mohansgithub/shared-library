@@ -29,7 +29,7 @@ def call(userName,role,email){
 							def newmap = it;
 							echo("first level item: " + newmap);
 							newmap.each {
-								echo("    ${it.key}: ${it.value}");
+								echo("${it.key}: ${it.value}");
 							}
 						}
 						automateUtils.assignRole("user","jenkins","email");

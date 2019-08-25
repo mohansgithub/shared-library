@@ -65,6 +65,6 @@ public class AutomateUtils{
 			return responsBody;
 		}else{
 			throw new Exception("Error Status - ${responseCode}");
-		
+		}
 	}
 }
