@@ -4,7 +4,7 @@ def call(usersMap){
 	pipeline{
 		agent any
 		parameters {
-			string(defaultValue: true, description: '', name: 'PARAMETER')
+			string(description: '', name: 'PARAMETER');
 		}
 
 		stages{
