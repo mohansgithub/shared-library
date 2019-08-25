@@ -17,6 +17,10 @@ public class AutomateUtils{
 		get("URL","${user}:${password}");
 		
 	}
+	def addProject(userName,project){
+		pipeline.echo("${userName} - ${project}"
+	}
+	
 	def get(url,credentials){
 		pipeline.echo("Lets call API from here");
 	}
