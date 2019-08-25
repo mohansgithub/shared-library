@@ -25,7 +25,7 @@ public class AutomateUtils{
 		def password="admin";
 		
 		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
-		def data="type=projectRole&amp;&roleName=${project}&amp;sid=${email}"
+		def data="type=projectRole&roleName=${project}&sid=${email}"
 		def contentType="application/x-www-form-urlencoded"
 		
 		post(url,contentType,data,"${user}:${password}");
