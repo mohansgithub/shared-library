@@ -15,19 +15,19 @@ public class AutomateUtils{
 		def password
 		
 	//	get("URL","${user}:${password}");
-		pipeline.echo("Assigned role - ${role} to ${email}");
+		pipeline.echo("[INFO] Assigned role - ${role} to ${email}");
 		
 	}
 	def assignProject(email,project){
 		def user
 		def password
 		
-		def url
+		def url=pipeline.env.JENKINS_URL+"/";
 		def data
 		def contentType
 		
 	// post(url,contentType,data,"${user}:${password}");
-		pipeline.echo("Assigned project - ${project} to ${email}");
+		pipeline.echo("[INFO] Assigned project ${url} - ${project} to ${email}");
 	}
 	
 	def get(url,credentials){
@@ -44,7 +44,7 @@ public class AutomateUtils{
 			def responseBody=get.getInputStream().getText();
 			return responsBody;
 		}else{
-			throw new Exception("Error Status - ${responseCode}");
+			throw new Exception("[ERROR] Error Status - ${responseCode}");
 		}
 	}
 	

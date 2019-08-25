@@ -24,7 +24,7 @@ def call(usersMap){
 							def user = it;
 							def email=user.email;
 							def role=user.role;
-							echo("Assigning role : ${role}  to ${email}-[${user.name}]");
+							echo("[INFO] Assigning role : ${role}  to ${email}-[${user.name}]");
 							automateUtils.assignRole(email,role);
 						}
 						
@@ -40,7 +40,7 @@ def call(usersMap){
 							def email=user.email;
 							user.project.each{
 								def project = it;
-								echo("Assigning project : ${project}  to ${email}");
+								echo("[INFO] Assigning project : ${project}  to ${email}");
 								automateUtils.assignProject(email,project);	
 							}
 							
