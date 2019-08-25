@@ -8,10 +8,10 @@ def call(userName,role,email){
 			stage("verify users"){
 				steps{
 					script{
-						echo "pwd && ls -l"
+						sh "pwd && ls -l"
 						cleanWs();
 						echo "Hi Groovy";
-						echo "pwd && ls -l"
+						sh "pwd && ls -l"
 					}
 				}
 			}
