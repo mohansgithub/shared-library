@@ -13,7 +13,7 @@ public class AutomateUtils{
 		def password="admin";
 		
 		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
-		def data="type=globalRoles&roleName=${role}&sid=${email}"
+		def data="type=globalRoles&amp;roleName=${role}&amp;sid=${email}"
 		def contentType="application/text"
 		
 		post(url,contentType,data,"${user}:${password}");
@@ -25,7 +25,7 @@ public class AutomateUtils{
 		def password="admin";
 		
 		def url=pipeline.env.JENKINS_URL+"role-strategy/strategy/assignRole";
-		def data="type=projectRoles&roleName=${project}&sid=${email}"
+		def data="type=projectRole&amp;&roleName=${project}&amp;sid=${email}"
 		def contentType="application/text"
 		
 		post(url,contentType,data,"${user}:${password}");
