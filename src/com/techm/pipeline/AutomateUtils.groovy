@@ -1,7 +1,7 @@
 //Add Code Here
 package com.techm.pipeline;
 
-public Class AutomateUtils{
+public class AutomateUtils{
 
 	def pipeline;
 	public AutomateUtils(pipeline){
