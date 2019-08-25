@@ -8,18 +8,17 @@ public class AutomateUtils{
 		this.pipeline=pipeline;
 	}
 	
-	def assignRole(userName,role,email){
-		pipeline.echo("${userName} (${role}) - ${email}");
+	def assignRole(email,role){
+		
 		
 		def user
 		def password
 		
 	//	get("URL","${user}:${password}");
+		pipeline.echo("Assigned role - ${role} to ${email}");
 		
 	}
-	def assignProject(userName,project){
-		pipeline.echo("${userName} - ${project}");
-		
+	def assignProject(email,project){
 		def user
 		def password
 		
@@ -27,7 +26,8 @@ public class AutomateUtils{
 		def data
 		def contentType
 		
-	//	post(url,contentType,data,"${user}:${password}");
+	// post(url,contentType,data,"${user}:${password}");
+		pipeline.echo("Assigned project - ${project} to ${email}");
 	}
 	
 	def get(url,credentials){

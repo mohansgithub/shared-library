@@ -1,7 +1,6 @@
 import com.techm.pipeline.*;
-def call(userName,role,email){
+def call(usersMap){
 	AutomateUtils automateUtils=new com.techm.pipeline.AutomateUtils(this);
-	
 	pipeline{
 		agent any
 		stages{
@@ -12,27 +11,23 @@ def call(userName,role,email){
 						cleanWs();
 						echo "Hi Groovy";
 						sh "pwd && ls -l"
+						
+						
 					}
 				}
 			}
 			stage("Assign roles"){
 				steps{
 					script{
-						echo "Creating users";
-						def listmap = [
-							[a: 4, b: 16, c: 64],
-							[x: 5, y: 25, z: 625],
-						]
-
-						echo('Using "it":');
-						listmap.each {
-							def newmap = it;
-							echo("first level item: " + newmap);
-							newmap.each {
-								echo("${it.key}: ${it.value}");
-							}
+						echo "Assiging roles";
+						usersMap.each {
+							def user = it;
+							def email=user.email;
+							def role=user.role;
+							echo("Assigning role : ${role}  to ${email}-[${user.name}]");
+							automateUtils.assignRole(email,role);
 						}
-						automateUtils.assignRole("user","jenkins","email");
+						
 					}
 				}
 			}
@@ -40,7 +35,18 @@ def call(userName,role,email){
 				steps{
 					script{
 						echo "Assigning project";
-						automateUtils.assignProject("user","project");
+						usersMap.each {
+							def user = it;
+							def email=user.email;
+							user.project.each{
+								def project = it;
+								echo("Assigning project : ${project}  to ${email}");
+								automateUtils.assignProject(email,project);	
+							}
+							
+						
+						}
+						
 					}
 				}
 			}
