@@ -59,7 +59,7 @@ public class AutomateUtils{
 		post.setDoOutput(true);
 		post.setRequestProperty("Authorization","Basic ${base64Encode}");
 		post.setRequestProperty("Content-Type","${contentType}");
-		post.getOutputSteam().write(data.getBytes("UTF-8"));
+		post.getOutputStream().write(data.getBytes("UTF-8"));
 		def responseCode = post.getResponseCode();
 		pipeline.echo("[REST API] Status Code ${responseCode} : - ${url}");
 		if(responseCode.equals(200) || responseCode.equals(201)){
